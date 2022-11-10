@@ -33,6 +33,7 @@ interface SignInCredencials {
 
 interface AuthContextState {
   user: UserData;
+  token: string;
   signIn(credentials: SignInCredencials): void;
   signOut(): void;
   loading: boolean;
@@ -70,7 +71,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      MySwal({
+      MySwal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Login ou senha incorretos!',
@@ -89,11 +90,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const userContext = useMemo(
     () => ({
       user: data.user,
+      token: data.token,
       signIn,
       signOut,
       loading,
     }),
-    [data.user, signIn, signOut, loading],
+    [data, signIn, signOut, loading],
   );
 
   return (

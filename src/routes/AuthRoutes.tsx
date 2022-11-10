@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes as RouterSwitch, Route } from 'react-router-dom';
+import { Sidebar } from '../components/Sidebar';
 import { Home } from '../pages/Home';
 import { SignIn } from '../pages/SignIn';
 import { SignUp } from '../pages/SignUp';
-import Teste from '../pages/Teste';
 
 export const AuthRoutes = () => (
   <RouterSwitch>

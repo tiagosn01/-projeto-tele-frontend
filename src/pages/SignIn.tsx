@@ -16,14 +16,7 @@ export function SignIn() {
   const [loginData, setLoginData] = useState({} as LoginData);
 
   function handleSubmit(e: SyntheticEvent) {
-    MySwal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Login ou senha incorretos!',
-      // footer: '<a href="">Why do I have this issue?</a>',
-    });
-
-    // signIn({ email: loginData.email, password: loginData.password });
+    signIn({ email: loginData.email, password: loginData.password });
   }
 
   return (
