@@ -242,19 +242,16 @@ export function Customer() {
       <PageHeader
         title="Clientes"
         subTitle="Cadastro de clientes"
+        className="mb-6"
         onBack={() => {
           console.log('teste');
         }}
       />
-      <Menu mode="horizontal" defaultSelectedKeys={['mail']}>
-        <Button type="primary" onClick={toggle}>
+      <Menu mode="horizontal">
+        <Button type="primary" className="mb-2" onClick={toggle}>
           Novo
         </Button>
       </Menu>
-
-      <Divider type="horizontal" orientation="left">
-        Tabela de clientes
-      </Divider>
 
       <TableCustomer />
     </>

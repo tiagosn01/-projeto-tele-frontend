@@ -1,5 +1,5 @@
-import React from 'react';
-import { Routes as RouterSwitch, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes as RouterSwitch, Route, redirect } from 'react-router-dom';
 import { useAuth } from '../hooks/AuthContext';
 import { Home } from '../pages/Home';
 import { SignIn } from '../pages/SignIn';
@@ -8,6 +8,17 @@ import { AuthRoutes } from './AuthRoutes';
 
 export const Routes = () => {
   const { user } = useAuth();
+
+  function redirectLogin() {
+    console.log('teste');
+    return redirect('/login');
+  }
+
+  useEffect(() => {
+    if (!user) {
+      redirectLogin();
+    }
+  }, [user]);
 
   // if (loading) {
   //   return (
@@ -21,6 +32,6 @@ export const Routes = () => {
   //   return <AppCongis />;
   // }
 
-  return user?.email ? <AppRoutes /> : <AuthRoutes />;
+  return user ? <AppRoutes /> : <AuthRoutes />;
   // return <AppRoutes />;
 };
