@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://3.83.232.90',
+  baseURL: 'https://app.mjtelecom.com.br/',
 });
 
 api.interceptors.request.use(async (config: any) => {
